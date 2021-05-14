@@ -1,5 +1,6 @@
 from socket import *
 import time
+import sys
 
 class Client(object):
     def __init__(self,server_name,server_port):
@@ -33,9 +34,14 @@ def main():
 
     # Nome ou endereço IP e numero da porta socket do servidor 
     server_name = '192.168.56.1'
-    server_port = 8000
+    
+    server_port = sys,argv[1]
 
-    message = input('Input lowercase sentence: ')
+    # server_names = []
+
+    # for i in range(3):
+    #     server_name = input("Entre IP do servidor:")
+
 
     cli = Client(server_name, server_port)
     cli.create_socket()
