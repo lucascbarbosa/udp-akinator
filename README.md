@@ -1,2 +1,3 @@
-# udp-gps
-A simple UDP socket used for geolocation through triangulation between 3 servers
+# udp-akinator
+A simple UDP socket used for playing akinator
+
