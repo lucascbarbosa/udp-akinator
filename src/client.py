@@ -33,16 +33,16 @@ class Client(object):
 def main():
 
     # Nome ou endereço IP e numero da porta socket do servidor 
-    server_name = '192.168.56.1'
-    
-    server_port = sys,argv[1]
+    server_port = int(sys.argv[1])
+
+    server_name = sys.argv[2]
 
     # server_names = []
 
     # for i in range(3):
     #     server_name = input("Entre IP do servidor:")
 
-
+    message = input("Entre mensagem: ")
     cli = Client(server_name, server_port)
     cli.create_socket()
     start = cli.get_time()
