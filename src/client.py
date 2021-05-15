@@ -17,42 +17,8 @@ class Client(object):
         # Enviando mensagem ao servidor buscando endereço e porta socket
         self.client_socket.sendto(message,(self.server_name, self.server_port))
 
-    def get_time(self):
-        return time.time()
-    
-    def get_ping(self,start,end):
-        return end-start
-
     def get_message(self):
         return self.client_socket.recvfrom(2048)[0].decode().lower()
 
     def close_socket(self):
         self.client_socket.close()
-
-
-def main():
-
-    # Nome ou endereço IP e numero da porta socket do servidor 
-    server_port = int(sys.argv[1])
-
-    server_name = sys.argv[2]
-
-    # server_names = []
-
-    # for i in range(3):
-    #     server_name = input("Entre IP do servidor:")
-
-    message = input("Entre mensagem: ")
-    cli = Client(server_name, server_port)
-    cli.create_socket()
-    start = cli.get_time()
-    print(start)
-    cli.send_message(message)
-    end = cli.get_time()
-    print(end)
-    return_message = cli.get_message()
-    ping = cli.get_ping(start,end)
-    print(ping)
-    cli.close_socket()
-
-main()
